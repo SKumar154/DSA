@@ -1,27 +1,15 @@
 class Solution {
     public String intToRoman(int num) {
-        TreeMap<Integer,String> map = new TreeMap<>(Collections.reverseOrder());
-        map.put(1000,"M");
-        map.put(900,"CM");
-        map.put(500,"D");
-        map.put(400,"CD");
-        map.put(100,"C");
-        map.put(90,"XC");
-        map.put(50,"L");
-        map.put(40,"XL");
-        map.put(10,"X");
-        map.put(9,"IX");
-        map.put(5,"V");
-        map.put(4,"IV");
-        map.put(1,"I");
+        int[] values =    {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+        String[] romans = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+                StringBuilder result=new StringBuilder();
+                for(int i =0;i<values.length;i++){
+                    while(num>=values[i]){
+                        num-=values[i];
+                        result.append(romans[i]); 
+                    }
 
-        StringBuilder result = new StringBuilder();
-        for(int value : map.keySet()){
-            while(num>=value){
-                result.append(map.get(value));
-                num -= value;
-            }
-        }
-        return result.toString();
+                } 
+                return result.toString();
     }
 }
