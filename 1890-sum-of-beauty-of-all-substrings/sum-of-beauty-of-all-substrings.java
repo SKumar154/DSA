@@ -20,19 +20,19 @@ class Solution {
         // }
         // return (total-count);
 
-        int cnt=0;
+        int cnt = 0;
+
         for (int i = 0; i < n; i++) {
             HashMap<Character, Integer> map = new HashMap<>();
             for (int j = i; j < n; j++) {
                 char c = s.charAt(j);
                 map.put(c, map.getOrDefault(c, 0) + 1);
-                if (map.size() >= 2) {
-                    cnt += beauty(map);
-                }
+                cnt += beauty(map);  
             }
         }
 
         return cnt;
+        
     }
 
     public int beauty(HashMap<Character,Integer> map){
