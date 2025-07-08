@@ -4,8 +4,8 @@ class Solution {
         int i=0;
         int j=0;
         double sum=0;
-        double max=Integer.MIN_VALUE;
         double avg=0;
+        double max=Integer.MIN_VALUE;
         int n=nums.length;
         while(j<n){
             sum=sum+nums[j];
