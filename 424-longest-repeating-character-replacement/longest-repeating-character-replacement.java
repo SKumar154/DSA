@@ -16,8 +16,15 @@ class Solution {
                 map.put(lchar, map.get(lchar) - 1);
                 i++;
             } 
-            maxLen = Math.max(maxLen, j - i + 1);
+            maxLen = max(maxLen, j - i + 1);
         } 
         return maxLen;
+    }
+    private int max(int a, int b) {
+        if (a > b) {
+            return a;
+        } else {
+            return b;
+        }
     }
 }
