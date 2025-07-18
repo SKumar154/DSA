@@ -26,21 +26,29 @@ class Solution {
         //     }
         // }
         
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-        for(int i : stones){
-            maxHeap.offer(i);
-        }
-        while(maxHeap.size()>1){
-            int w1 = maxHeap.poll();
-            int w2 = maxHeap.poll();
+        // PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+        // for(int i : stones){
+        //     maxHeap.offer(i);
+        // }
+        // while(maxHeap.size()>1){
+        //     int w1 = maxHeap.poll();
+        //     int w2 = maxHeap.poll();
 
-            if(w1!=w2){
-                maxHeap.offer(w1-w2);
-            }
+        //     if(w1!=w2){
+        //         maxHeap.offer(w1-w2);
+        //     }
+        // }
+        // if(maxHeap.size()==0){
+        //     return 0;
+        // }
+        // return maxHeap.peek();
+
+        int n=stones.length;
+        Arrays.sort(stones);
+        for(int i=n-1;i>0;i--){
+            stones[i-1]=stones[i]-stones[i-1];
+            Arrays.sort(stones);
         }
-        if(maxHeap.size()==0){
-            return 0;
-        }
-        return maxHeap.peek();
+        return stones[0];
     }
 }
