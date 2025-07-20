@@ -1,23 +1,23 @@
 class Solution {
-    private int distance(int[]point){
-        return point[0]*point[0]+point[1]*point[1];
+    private int distance(int[] point){
+        return point[0]*point[0] + point[1]*point[1];
     }
     public int[][] kClosest(int[][] points, int k) {
-        PriorityQueue<int[]>pq=new PriorityQueue<>((a,b)->distance(b)-distance(a));
-        for(int[]point:points){
-            pq.add(point);
-            if(pq.size()>k){
-                pq.poll();
+        
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>((a,b)->distance(b)-distance(a));
+        
+        for(int[] i : points){
+            maxHeap.add(i);
+
+            if(maxHeap.size()>k){
+                maxHeap.poll();
             }
         }
-        int[][]output=new int[k][2];
-        for(int i=0;i<k;i++){
-            output[i]=pq.poll();
+        int[][] res = new int[k][2];
 
+        for(int j=0;j<k;j++){
+            res[j] = maxHeap.poll();
         }
-        return output;
-
-
-        
+        return res;        
     }
 }
