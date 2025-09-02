@@ -5,7 +5,7 @@ class Solution {
         Stack<Integer> stack = new Stack<>();
         int max=Integer.MIN_VALUE;
         for(int i=0;i<=n;i++){
-            int element =(i==n) ? 0 : nums[i];
+            int element = (i==n) ? 0 : nums[i];
 
             while(!stack.isEmpty() && nums[stack.peek()]>element){
                 int h = nums[stack.pop()];
