@@ -8,7 +8,7 @@ class Solution {
         }
         int maxArea=0;
         for(int i=0;i<n;i++){
-            for(int j=0;j<matrix[0].length;j++){
+            for(int j=0;j<matrix[i].length;j++){
                 int val = matrix[i][j]-'0';
                 if(val==0){
                     nums[j] = 0;
