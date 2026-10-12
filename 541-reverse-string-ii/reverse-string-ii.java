@@ -1,25 +1,23 @@
 class Solution {
-
-    public void reverseSwap(char[] arr , int i, int j){
+    private void reverseSubString(char[] arr, int i, int j){
 
         while(i<j){
             char temp = arr[i];
-            arr[i]=arr[j];
-            arr[j]=temp;
+            arr[i] = arr[j];
+            arr[j] = temp;
             i++;
             j--;
         }
     }
-    
     public String reverseStr(String s, int k) {
-
-        char[] arr = s.toCharArray();
-        int n =arr.length;
-        for(int i=0;i<n;){
-            int j=Math.min(i+k-1,n-1);
-            reverseSwap(arr,i,j);
-            i=i+2*k;
+        
+        char[] res = s.toCharArray();
+        int n=res.length;
+        
+        for(int start=0;start<n; start += 2*k){
+            int end = Math.min(start+k-1,n-1);
+            reverseSubString(res,start,end);
         }
-        return new String(arr);
+        return new String(res);
     }
 }
