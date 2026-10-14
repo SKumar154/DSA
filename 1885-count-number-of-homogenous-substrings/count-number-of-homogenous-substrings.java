@@ -11,6 +11,7 @@ class Solution {
             }else{
                 count=1;
             }
+            // A run of length k contains k * (k + 1) / 2 homogenous substrings.
             sum = (sum + count) % mod;
         }
         return (int) sum;
