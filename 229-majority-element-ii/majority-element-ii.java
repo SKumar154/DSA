@@ -3,19 +3,14 @@ class Solution {
         
         int n=nums.length;
         HashMap<Integer,Integer> map = new HashMap<>();
+        ArrayList<Integer> list = new ArrayList<>();
 
-        for(int i=0;i<n;i++){
-            if(map.containsKey(nums[i])){
-                map.put(nums[i],map.get(nums[i])+1);
-            }
-            else{
-                map.put(nums[i],1);
-            }
+        for(int i : nums){
+            map.put(i,map.getOrDefault(i,0)+1);
         }
-        List<Integer> list = new ArrayList<>();
-        for(int key : map.keySet()){
-            if(map.get(key)>n/3){
-                list.add(key);
+        for(Map.Entry<Integer,Integer> entry : map.entrySet()){
+            if(entry.getValue() > n/3){
+                list.add(entry.getKey());
             }
         }
         return list;
